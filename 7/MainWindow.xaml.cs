@@ -27,6 +27,25 @@ namespace _7
 
 
 
+        private int factorial(int n)
+        {
+
+            int result = 1;
+
+            for (int i = 1; i <= n; i++)
+            {
+                result *= n;
+            }
+
+            if (n == 0)
+            {
+                return 1;
+            }
+
+            return result;
+        }
+
+
         private double a (char type, int i)
         {
 
@@ -35,37 +54,37 @@ namespace _7
 
                 case 'а':
 
-                    return 1 / Math.Pow(i, 2);
+                    return 1.0 / Math.Pow(i, 2);
 
 
 
                 case 'б':
 
-                    return 1 / (i * (i + 1));
+                    return 1.0 / (i * (i + 1));
 
 
 
                 case 'в':
 
-                    return ;
+                    return Math.Pow(-1, i) / factorial(i);
 
 
 
                 case 'г':
 
-                    return ;
+                    return Math.Pow(-2, i) / factorial(i);
 
 
 
                 case 'д':
 
-                    return ;
+                    return Math.Pow(-1, i + 1) / (i * (i + 1) * (i + 2));
 
 
 
                 case 'е':
 
-                    return ;
+                    return 1.0 / (Math.Pow(4, i) + Math.Pow(5, i + 2));
 
 
 
@@ -106,16 +125,32 @@ namespace _7
 
                 double epsilon = double.Parse(Epsilon.Text);
 
-                if(!(epsilon > 0))
+                if (!(epsilon > 0))
                 {
                     throw new ArgumentException();
                 }
 
-                
+
+                // 0 и 1 в зависимости с чего начинается беск. сумма
+
+                A.Content = $"{sum('а', epsilon, 1)}";
+                B.Content = $"{sum('б', epsilon, 1)}";
+                V.Content = $"{sum('в', epsilon, 1)}";
+                G.Content = $"{sum('г', epsilon, 0)}";
+                D.Content = $"{sum('д', epsilon, 1)}";
+                E.Content = $"{sum('е', epsilon, 0)}";
 
             }
 
-            catch { }
+            catch
+            {
+                A.Content = "-";
+                B.Content = "-";
+                V.Content = "-";
+                G.Content = "-";
+                D.Content = "-";
+                E.Content = "-";
+            }
         }
     }
 }
