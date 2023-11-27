@@ -24,5 +24,68 @@ namespace _6
         {
             InitializeComponent();
         }
+
+
+        // в виде реккур. функции
+        private double sum (int n, int k)
+        {
+            if (n == 1)
+            {
+                return 1;
+            }
+
+            return Math.Pow(n, k) + sum(n - 1, k);
+        }
+
+
+
+        private void compute()
+        {
+
+            try
+            {
+
+                int n = int.Parse(N.Text);
+                int k = int.Parse(K.Text);
+
+                if (0 < n)
+                {
+
+                    double sum = 0;
+
+                    for (int i = 1; i <= n; i++)
+                    {
+                        sum += Math.Pow(i, k);
+
+                    }
+
+                    // переполнение
+                    if (sum == 0) { throw new ArgumentException(); }
+
+
+
+                    Result.Content = $"{sum}";
+
+                }
+                else { throw new ArgumentException(); }
+
+            }
+
+            catch
+            {
+                Result.Content = "-";
+            }
+        }
+
+
+        private void N_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            compute();
+        }
+
+        private void K_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            compute();
+        }
     }
 }

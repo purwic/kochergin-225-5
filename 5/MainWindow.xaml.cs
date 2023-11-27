@@ -24,5 +24,29 @@ namespace _5
         {
             InitializeComponent();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+            double product = 1.0;
+
+
+            for (int j = 0; j < 15; j++)
+            {
+                product *= a(j);
+            }
+
+            Result.Content = $"{product}";
+
+        }
+
+        private double a (int i)
+        {
+            if (i == 0 || i == 1) { return 1; }
+
+
+            return a(i - 2) + a(i - 1) / Math.Pow(2, i - 1);
+        }
+
     }
 }

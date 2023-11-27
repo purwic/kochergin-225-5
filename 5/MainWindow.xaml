@@ -6,7 +6,86 @@
         xmlns:local="clr-namespace:_5"
         mc:Ignorable="d"
         Title="Задание 5" Height="450" Width="800">
-    <Grid>
+
+    <Window.Resources>
+
+        <Style TargetType="Control" x:Key="Graphic Element">
+            <Setter Property="Height" Value="42" />
+            <Setter Property="Margin" Value="16" />
+            <Setter Property="Padding" Value="12" />
+        </Style>
+
+
+        <Style TargetType="Label" x:Key="Text" BasedOn="{StaticResource Graphic Element}">
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="FontFamily" Value="Candana" />
+        </Style>
+
+
+        <Style x:Key="Main Text" TargetType="Label" BasedOn="{StaticResource Text}">
+            <Setter Property="Foreground" Value="#243238"/>
+        </Style>
+
+
+        <Style x:Key="Sub Text" TargetType="Label" BasedOn="{StaticResource Text}">
+            <Setter Property="Foreground" Value="#78909c"/>
+        </Style>
+
+
+        <Style x:Key="Attention Text" TargetType="Label" BasedOn="{StaticResource Text}">
+            <Setter Property="Foreground" Value="#fff6a5"/>
+        </Style>
+
+        <Style x:Key="TextBox" TargetType="TextBox" BasedOn="{StaticResource Graphic Element}">
+            <Setter Property="BorderBrush" Value="#243238"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Foreground" Value="#243238"/>
+            <Setter Property="Width" Value="100"/>
+            <Setter Property="TextAlignment" Value="Center"/>
+        </Style>
+
+        <Style x:Key="Button" TargetType="Button" BasedOn="{StaticResource Graphic Element}">
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Foreground" Value="#243238"/>
+            <Setter Property="Width" Value="100"/>
+        </Style>
         
+    </Window.Resources>
+
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Image Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Source="task.jpg" Height="92" Width="376" ></Image>
+        
+        <StackPanel Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+
+            <Button Content="Рассчитать"  Style="{StaticResource Button}" Click="Button_Click"></Button>
+
+        </StackPanel>
+
+
+
+
+
+        <StackPanel Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" Grid.RowSpan="2" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+
+                <Label Content="Ответ:" Style="{StaticResource Sub Text}"></Label>
+                <Label x:Name="Result" Style="{StaticResource Main Text}">-</Label>
+
+            </StackPanel>
+        </StackPanel>
     </Grid>
 </Window>
