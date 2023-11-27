@@ -62,7 +62,7 @@
         
         
         <Button x:Name="Clear" Content="Очистить" Grid.Row="1"
-            Grid.Column="1" Margin="104,3,8,3"
+            Grid.Column="1" Margin="100,3,2,3"
             Background="#FF3985B0"
             Foreground="White"
             Click="Clear_Click" />
