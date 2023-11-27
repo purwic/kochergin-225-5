@@ -58,7 +58,7 @@
             VerticalContentAlignment="Center"
             Padding="10 0" Width="80"
             BorderThickness="2" 
-            KeyDown="Input_KeyDown"/>
+            KeyDown="Input_KeyDown" />
 
 
         <Button x:Name="Clear" Content="Очистить" Grid.Row="1"
